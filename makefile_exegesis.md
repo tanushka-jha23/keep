@@ -1,6 +1,6 @@
 # Makefile - A Build System
 
-I love writing code in C. Sometimes, I find it a little hard to write code purely in C when it comes to a big project and when it's about compiling the files of that bigger project it is even more harder. Wait! Do you know what compilation is?
+Usually, I enjoy writing code in C but sometimes it becomes a little harder to handle and compile so many files all at once.
 ```
     #include <stdio.h>
     
@@ -8,21 +8,23 @@ I love writing code in C. Sometimes, I find it a little hard to write code purel
         printf("Hello World!");
     }
 ```
-You must have seen this code at some point of your life. To execute this code, you have to write the following command on your terminal.
+This is a very common program to print "Hello World!" in C. To execute this code, you have to write the following command on your terminal.
 `gcc main.c -o main`
-This command will eventually give an executable file which you can run by writing "./main", on your terminal.
-BUT, Have you ever thought about working of this command?
+This command will give an executable file which you can run by writing `./main`, on your terminal.
+Do you know, what happens when you run this command?
 
-Let's understand the process of compilation in C step-by-step,
+Let's understand this process, step-by-step.
 
-Here, In this example *main.c* file contains *printf* function. The execution of "printf" is written inside the standard file "stdio.c" of C. "stdio.c" is a dependency of "main.c". By including "stdio.h", you are including the dependency of "main.c".
-
-- `gcc main.c -o main` internally attaches "stdio.c" as `gcc main.c stdio.c -o main`.
-- Both the files (main.c and stdio.c) will be converted to their object files("main.o" and "stdio.o"). 
-- Linker will link these object files and produce an executable file.
+Here, In this example `main.c` file contains `printf` function. The execution of "printf" is written inside the standard file "stdio.c" of C.
+Then, why did we add "stdio.h" and not "stdio.c"?
+For understanding this, you should have idea about *headerfiles*.
+*Headerfiles* are represented by *.h* extension. *.c* files contains the execution of the code and *.h* files contains the signature of the functions. 
+When you add `stdio.h` in your main file, it allows you to use all the functions of `stdio.c` file in your program.
+When you write `gcc main.c -o main`,
+- Both the files `main.c` and `stdio.c` will be converted to their object files `main.o` and `stdio.o` respectively. 
+- Linker will link these object files and produce an executable file `main.exe`.
 
 After getting the executable file, you can run this file using `./main` command. 
-From the above example it is easyu to understand that whenever you compile a C file, it will be compiled in 3 steps.
 
 Now, let's take another example to understand more,
 `gcc main.c string_lib.c utils.c math_utils.c -o main`.
@@ -30,9 +32,8 @@ Now, let's take another example to understand more,
 Here, "main.c" has 3 dependencies. Whenever any dependency changes the command runs and all the three dependent files will be converted to their object files. Then the linker will link them.
 Everytime, this compilation will take 5 steps (4 steps to convert 4 C files to their object files and 1 step to link them).
 
-Imagine a scenario where a file has 20 dependencies. In this case, everytime compilation occurs in 22 steps. 
-Don't you think there's no need to do these 22 steps everytime?
-Obviously, there is no need of converting all the files. Only those files, which got changed after the last compilation needs to be converted to their object files again.
+Imagine a scenario where a file has 20 dependencies. In this case, everytime compilation occurs in 22 steps.
+Some of the steps are unnecessary. There is no need to convert all the files. Only those files, which got changed after the last compilation needs to be converted to their object files again.
 
 Here, in such cases this way of compilation becomes slow and to solve this we use *BUILD SYSTEMS*.
 
@@ -40,9 +41,9 @@ Here, in such cases this way of compilation becomes slow and to solve this we us
 ## Build Systems and Makefile
 
 Build systems are tools that automates the process of compilation, linking and execution.
-Makefile is one of the build system in C. It automates the compilation of code written in C.
+*Makefile* is one of the build system in C. It automates the compilation of code written in C.
 
-Let's discuss about the example taken in the previous topic using Makefile,
+Let's discuss about the previous example again.
 `gcc main.c string_lib.c utils.c math_utils.c -o main`.
 
 ### Makefile
@@ -68,7 +69,8 @@ To understand the code written in this makefile, you must be aware with the synt
 target: dependencies
     code to execute
 ```
-Makefiles have 2 most important components, *TARGETS* and *DEPENDENCIES*. Targets have various dependencies and when any of the dependencies change, the code in the target will be executed.
+
+Makefiles have 2 most important components, *TARGETS* and *DEPENDENCIES*. Targets have various dependencies and when any of the dependencies change, the target will be executed again.
 
 In the above Makefile, there are total 5 targets (main, main.o, string_lib.o, utils.o and math_utils.o).
 - Target "main" has 4 dependencies and other targets have 1 dependency. To build main, first you need to build it's dependencies.
@@ -77,7 +79,7 @@ In the above Makefile, there are total 5 targets (main, main.o, string_lib.o, ut
 
 ### How to compile using Makefile?
 
-Here, for compilation you don't need to write that big command instead you can compile by just writing `make main`in your terminal.
+For compilation you don't need to write that big command instead you can compile by just writing `make main`in your terminal.
 You'll see the order something like this.
 ```
     gcc main.c -o main.o -c
