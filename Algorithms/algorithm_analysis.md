@@ -33,7 +33,7 @@ while i < length(A)
 end while
 ```
 
->*$T(n) = c1 + c2n + c3n + c4n\sum_i t_i + c5n\sum_i t_i + c6n\sum_i t_i + c7n$*
+> $T(n) = c1 + c2n + c3n + c4n\sum_i t_i + c5n\sum_i t_i + c6n\sum_i t_i + c7n$
 
 
 ### Understanding the equation for time complexity of insertion sort
@@ -60,7 +60,7 @@ Line 2 to line 6 are -:
 There are number of possible cases of sorting.
 1) *Best Case* 
 If array is already sorted, equation of time complexity will be
-> T(n) = c1 + c2n + c3n + c7n
+> $T(n) = c1 + c2n + c3n + c7n$
 
 The terms $c4n\sum_i t_i + c5n\sum_i t_i + c6n\sum_i t_i$ are not present in the above equation because if the array is already sorted then condition of inner loop will not be satisfied and inner loop will not run.
 
