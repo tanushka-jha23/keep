@@ -66,13 +66,15 @@ $n^2(\frac{c4}{2}+\frac{c5}{2}+\frac{c6}{2}) - n(\frac{c4n}{2}+\frac{3c5n}{2}+\f
 
 To deal with different cases of an algorithm, different bounds are considered,
 
-1) *Lower bound* ($\Omega(f(n))$)
+1) *Lower bound* 
+$\Omega(f(n))$
 A set of all the functions whose value multiplied by some constant *$c_0$* are more than *f(n)* after some *$n_0$*. Then f(n) is called the lower bound.
 
-2) *Upper bound* (O(f(n)))
+2) *Upper bound* O(f(n))
 A set of all the functions whose value mutliplied by some constant *$c_0$* are less than *f(n)* after some *$ n_0$*. Then f(n) is called the upper bound.
     
-3) *Tight bound* ($\theta(f(n))$)
+3) *Tight bound* 
+$\theta(f(n))$
 It is a set of functions whose value multiplied by some constant *$c_0$* are less than *f(n)* and value of them multiplied by another constant *$c_1$* are more than *f(n)*. Then f(n) is called the tight bound.
 
 
