@@ -53,7 +53,7 @@ Now, there are number of possible cases of sorting.
 
 1) *Best Case* 
 If array is already sorted, inner while loop will not run and therefore $\sum_{i=1}^{n}$ will become *0*. Then the equation for time complexity will be
-> $T(n) = c1 + c2n + c3(n-1) - c5n - c6n + c7(n-1)$
+> $T(n) = c_1 + c_2n + c_3(n-1) - c_5n - c_6n + c_7(n-1)$
 
 2) *Worst case* 
 If array is reversed, then for 1st iteration of outer while loop the inner while loop will run *(n-1)* times, for the 2nd iteration it will run *(n-2)* times and so on.
@@ -82,7 +82,7 @@ It is a set of functions whose value multiplied by some constant *$c_0$* are les
 Since, *T(n)* of insertion sort has a term of $n^2$ therefore the closest upper bound will be *O($n^2$)*. If you draw a graph for $n^2$ and a graph for T(n)*c (c is some multiplier to make it less than n^2), you'll observe that graph of $n^2$ will always be greater than T(n)*c.
 
 - Similarly, to find the lower bound of insertion sort, you need to consider the best case. The equation for best case of the algorithm contains terms of *n*. If you multiply some constant *c* with T(n) and plot its graph you'll observe that the graph will always be less than the graph of *n*.
-Therefore, the lower bound for insertion sort will be $\Omega(n)$.
+Therefore, the lower bound for insertion sort will be $\omega$.
 
 - Tight bound of insertion sort does not exist because the degree of lower bound and upper bound is different in this case. Don't worry! later in merge sort you'll get to know about tight bound.
 
