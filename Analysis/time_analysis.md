@@ -89,27 +89,3 @@ Therefore, the lower bound for insertion sort will be $\omega$.
 - Tight bound of insertion sort does not exist because the degree of lower bound and upper bound is different in this case. Don't worry! later in merge sort you'll get to know about tight bound.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 
-
-
-
-
-
-
-
-
-
