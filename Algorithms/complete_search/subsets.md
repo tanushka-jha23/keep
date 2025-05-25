@@ -11,7 +11,7 @@ The basic method of solving a problem through subset is-:
 2) Process the subsets as per the requirement of your question.
 
 ## Recursive method of subsets
-```
+```python
 s = []
 
 def subset(k, n):
@@ -34,7 +34,7 @@ def subset(k, n):
 
 
 ## Bitwise method of subsets
-```
+```python
 s = [1, 4, 3, 2]
 for i in range(2 ** len(s)):
     filter = [i&1, (i&2)>>1, (i%4)>>2, (i%8)>>3]

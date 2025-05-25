@@ -11,7 +11,7 @@ This example justifies the above statement.
 To understand this method, let's break down these steps and understand them separately.
 
 ## Code that calculates the number of paths to reach the final position from the initial position
-```
+```python
 n = 5
 path = [[False] * n for _ in range(n)]
 path[0][0] = True
